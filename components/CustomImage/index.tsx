@@ -7,6 +7,7 @@ interface ICustom {
   imgUrl?: string;
   w?: string;
   h?: string;
+  isGrayScale?: boolean;
 }
 
 const CustomImage: React.FC<ICustom> = ({
@@ -15,6 +16,7 @@ const CustomImage: React.FC<ICustom> = ({
   imgUrl,
   w = "fit-content",
   h = "fit-content",
+  isGrayScale = false,
 }) => {
   return (
     <Box
@@ -27,23 +29,30 @@ const CustomImage: React.FC<ICustom> = ({
       position="relative"
       role="group"
     >
-      <Box
-        position="absolute"
-        w="full"
-        h="full"
-        bg="blackAlpha.600"
-        display="flex"
-        transition="opacity 200ms"
-        opacity="0"
-        _groupHover={{ opacity: "100" }}
-        justifyContent="center"
-        alignItems="center"
-        fontSize="lg"
-      >
-        {name}
-      </Box>
+      {isGrayScale ? null : (
+        <Box
+          position="absolute"
+          w="full"
+          h="full"
+          bg="blackAlpha.600"
+          display="flex"
+          transition="opacity 200ms"
+          opacity="0"
+          _groupHover={{ opacity: "100" }}
+          justifyContent="center"
+          alignItems="center"
+          fontSize="lg"
+        >
+          {name}
+        </Box>
+      )}
 
-      <Image src={imgUrl} w={w} h={h} />
+      <Image
+        src={imgUrl}
+        transition="filter 200ms"
+        filter={isGrayScale ? "grayScale(100%)" : ""}
+        _hover={{ filter: isGrayScale && "grayscale(0%)" }}
+      />
     </Box>
   );
 };

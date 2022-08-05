@@ -47,28 +47,59 @@ const IntroSection: React.FC<IntroProps> = ({ data, isLoading }) => {
         templateAreas={`"header1 header1 header2 header3"
                         "main1 main2 main3 main3"`}
         placeItems="center"
+        gap="15px"
       >
         {isLoading ? (
           <Spinner />
         ) : (
           <>
             <GridItem area={"header1"}>
-              <CustomImage imgUrl={resource?.data[0]?.imgUrl} />
+              <CustomImage
+                imgUrl={resource?.data[0]?.imgUrl}
+                w="392.95px"
+                h="262.39px"
+                isGrayScale
+              />
             </GridItem>
             <GridItem area={"header2"}>
-              <CustomImage imgUrl={resource?.data[1]?.imgUrl} />
+              <CustomImage
+                imgUrl={resource?.data[1]?.imgUrl}
+                w="174.7px"
+                h="262.05px"
+                isGrayScale
+              />
             </GridItem>
             <GridItem area={"header3"}>
-              <CustomImage imgUrl={resource?.data[2]?.imgUrl} />
+              <CustomImage
+                imgUrl={resource?.data[2]?.imgUrl}
+                w="174.7px"
+                h="262.05px"
+                isGrayScale
+              />
             </GridItem>
             <GridItem area={"main1"}>
-              <CustomImage imgUrl={resource?.data[3]?.imgUrl} />
+              <CustomImage
+                imgUrl={resource?.data[3]?.imgUrl}
+                w="174.7px"
+                h="262.05px"
+                isGrayScale
+              />
             </GridItem>
             <GridItem area={"main2"}>
-              <CustomImage imgUrl={resource?.data[4]?.imgUrl} />
+              <CustomImage
+                imgUrl={resource?.data[4]?.imgUrl}
+                w="174.7px"
+                h="262.05px"
+                isGrayScale
+              />
             </GridItem>
             <GridItem area={"main3"}>
-              <CustomImage imgUrl={resource?.data[5]?.imgUrl} />
+              <CustomImage
+                imgUrl={resource?.data[5]?.imgUrl}
+                w="392.95px"
+                h="262.39px"
+                isGrayScale
+              />
             </GridItem>
           </>
         )}
