@@ -1,23 +1,37 @@
-import { Flex, Spinner, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
+import { useMainContext } from "../context/MainContext";
+
+import { MainLayout } from "../layouts";
+
+import React from "react";
+import {
+  BrandSection,
+  ProductSection,
+  ScaleSection,
+  ServiceSection,
+} from "../containers";
 
 const Home: NextPage = () => {
-  return (
-    <Flex
-      justify="center"
-      w="100%"
-      h="100vh"
-      align="center"
-      flexDir="column"
-      gap="25px"
-    >
-      <Text fontWeight="bold" fontSize="5xl" color="blue.400">
-        Developing ...
-      </Text>
+  const { setNavbar } = useMainContext();
 
-      <Spinner size="xl" color="blue.400" />
-    </Flex>
+  React.useEffect(() => {
+    setNavbar({
+      header: "Mari Berkenalan Dengan Kami!",
+      subHeader:
+        "Dengan layanan prima dan pengalaman selama lebih dari 20 tahun di industri pakaian, kami siap membantumu untuk maju ke tahap selanjutnya.",
+      buttonLabel: "Tentang Kami",
+      hasButton: true,
+      bgurl: "assets/img/bg/bgHompage.png",
+    });
+  }, []);
+
+  return (
+    <MainLayout>
+      <BrandSection />
+      <ProductSection />
+      <ServiceSection />
+      <ScaleSection />
+    </MainLayout>
   );
 };
 
