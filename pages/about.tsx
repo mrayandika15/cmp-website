@@ -2,7 +2,7 @@ import React from "react";
 import type { NextPage } from "next";
 import { MainLayout } from "../layouts";
 import { useMainContext } from "../context/MainContext";
-import { IntroSection } from "../containers";
+import { IntroSection, DivisionSection } from "../containers";
 import axios from "axios";
 
 export interface IService {
@@ -10,7 +10,7 @@ export interface IService {
   imgUrl: string;
 }
 
-interface IDivision {
+export interface IDivision {
   name: string;
   imgUrl: string;
 }
@@ -47,6 +47,7 @@ const About: NextPage = () => {
   return (
     <MainLayout>
       <IntroSection data={resource?.service} isLoading={isLoading} />
+      <DivisionSection data={resource?.division} />
     </MainLayout>
   );
 };

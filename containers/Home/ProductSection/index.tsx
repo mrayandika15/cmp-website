@@ -1,13 +1,4 @@
-import {
-  Button,
-  Flex,
-  Heading,
-  Text,
-  Image,
-  Box,
-  Grid,
-  GridItem,
-} from "@chakra-ui/react";
+import { Button, Heading, Grid, GridItem } from "@chakra-ui/react";
 import React from "react";
 import axios from "axios";
 import { CustomImage } from "../../../components";

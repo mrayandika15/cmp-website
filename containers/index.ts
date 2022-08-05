@@ -6,6 +6,7 @@ import ServiceSection from "./Home/ServiceSection";
 import ScaleSection from "./Home/ScaleSection";
 import Carousel from "./core/Carousel";
 import IntroSection from "./about/IntroSection";
+import DivisionSection from "./about/DivisionSection";
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   ScaleSection,
   Carousel,
   IntroSection,
+  DivisionSection,
 };

@@ -1,7 +1,8 @@
-import { Flex, Heading, Button } from "@chakra-ui/react";
+import { Flex, Heading, Button, Image, Text, Box } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import Carousel from "../../core/Carousel";
+import { SwiperSlide } from "swiper/react";
 
 interface IScale {
   name: string;
@@ -33,7 +34,28 @@ const ScaleSection: React.FC = () => {
     >
       <Heading variant="primary">Skala Kami</Heading>
       <Button variant="primary">Kontak</Button>
-      <Carousel data={resource} />
+      <Carousel>
+        {resource?.map((item, index) => {
+          return (
+            <SwiperSlide>
+              <Box
+                key={index}
+                bg="secondary"
+                w="550px"
+                h="350px"
+                rounded="3xl"
+                display="grid"
+                placeItems="center"
+              >
+                <Image src={item?.imgUrl} w="fit-content" h="fit-content" />
+                <Text color="white" fontWeight="semibold" fontSize="lg">
+                  {item?.name}
+                </Text>
+              </Box>
+            </SwiperSlide>
+          );
+        })}
+      </Carousel>
     </Flex>
   );
 };

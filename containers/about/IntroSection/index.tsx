@@ -1,6 +1,7 @@
 import { Flex, Heading, Text, Grid, Spinner, GridItem } from "@chakra-ui/react";
 import React from "react";
 import { CustomImage } from "../../../components";
+import { RoundedSection } from "../../../layouts";
 import { IService } from "../../../pages/about";
 
 interface IntroProps {

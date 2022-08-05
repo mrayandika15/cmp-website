@@ -16,7 +16,7 @@ const RoundedSection: React.FC<IRounded> = ({ children }) => {
       color="white"
       justify="center"
       alignItems="center"
-      gap="20px"
+      gap="25px"
     >
       {children}
     </Flex>
