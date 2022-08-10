@@ -98,12 +98,7 @@ const Navbar: React.FC = () => {
           >
             Layanan
           </Link>
-          <Link
-            onClick={() => router.push("/contact")}
-            _hover={{ textDecoration: "none" }}
-          >
-            Kontak
-          </Link>
+          <Link _hover={{ textDecoration: "none" }}>Kontak</Link>
         </Flex>
       </Flex>
     </Flex>
