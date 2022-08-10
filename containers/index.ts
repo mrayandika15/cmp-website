@@ -9,6 +9,9 @@ import IntroSection from "./about/IntroSection";
 import DivisionSection from "./about/DivisionSection";
 import ProductOverview from "./product/ProductOverview";
 import TimelineSection from "./service/TimelineSection";
+import CalculatorProduct from "./contact/CalculatorProduct";
+import Location from "./contact/Location";
+import EndSection from "./contact/EndSection";
 
 export {
   Navbar,
@@ -22,4 +25,7 @@ export {
   DivisionSection,
   ProductOverview,
   TimelineSection,
+  CalculatorProduct,
+  Location,
+  EndSection,
 };

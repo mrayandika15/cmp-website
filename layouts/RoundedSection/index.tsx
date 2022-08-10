@@ -3,13 +3,14 @@ import { Flex } from "@chakra-ui/react";
 
 interface IRounded {
   children: React.ReactNode;
+  bg?: string;
 }
 
-const RoundedSection: React.FC<IRounded> = ({ children }) => {
+const RoundedSection: React.FC<IRounded> = ({ children, bg = "primary" }) => {
   return (
     <Flex
       flexDir="column"
-      bg="primary"
+      bg={bg}
       borderTopRadius="75px"
       py="55px"
       px="25px"

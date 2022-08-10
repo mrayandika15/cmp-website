@@ -24,3 +24,24 @@ a {
     background: black;
   }
 }
+.swiper-button-next {
+  background-image: url(/assets/icon/panah_kiri.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper-button-prev {
+  background-image: url(/assets/icon/panah_kanan.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.swiper-button-prev::after {
+  display: none;
+}
