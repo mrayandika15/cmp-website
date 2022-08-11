@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import { MainLayout } from "../layouts";
 import { useMainContext } from "../context/MainContext";
 import { ProductOverview } from "../containers";
+import Head from "next/head";
 
 const Product: NextPage = () => {
   const { setNavbar } = useMainContext();
@@ -19,6 +20,9 @@ const Product: NextPage = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>Produk</title>
+      </Head>
       <ProductOverview />
     </MainLayout>
   );

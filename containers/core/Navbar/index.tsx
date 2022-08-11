@@ -55,7 +55,9 @@ const Navbar: React.FC = () => {
             {navbar.subHeader}
           </Text>
           {navbar.hasButton ? (
-            <Button variant="primary">{navbar.buttonLabel}</Button>
+            <Button variant="primary" onClick={() => router.push("/about")}>
+              {navbar.buttonLabel}
+            </Button>
           ) : null}
         </Flex>
       </Flex>

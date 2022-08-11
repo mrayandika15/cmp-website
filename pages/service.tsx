@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import { TimelineSection } from "../containers";
 import { useMainContext } from "../context/MainContext";
@@ -18,6 +19,9 @@ const Service: React.FC = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>Layanan</title>
+      </Head>
       <TimelineSection />
     </MainLayout>
   );

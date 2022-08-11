@@ -4,6 +4,7 @@ import { MainLayout } from "../layouts";
 import { useMainContext } from "../context/MainContext";
 import { IntroSection, DivisionSection } from "../containers";
 import axios from "axios";
+import Head from "next/head";
 
 export interface IService {
   name: string;
@@ -46,6 +47,9 @@ const About: NextPage = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>Tentang Kami</title>
+      </Head>
       <IntroSection data={resource?.service} isLoading={isLoading} />
       <DivisionSection data={resource?.division} />
     </MainLayout>

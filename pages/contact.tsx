@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import { MainLayout } from "../layouts";
 import { useMainContext } from "../context/MainContext";
 import { CalculatorProduct, EndSection, Location } from "../containers";
+import Head from "next/head";
 
 const Contact: NextPage = () => {
   const { setNavbar } = useMainContext();
@@ -20,6 +21,9 @@ const Contact: NextPage = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>Kontak</title>
+      </Head>
       <CalculatorProduct />
       <Location />
       <EndSection />

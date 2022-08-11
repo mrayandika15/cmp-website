@@ -1,7 +1,10 @@
 import { Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
 import React from "react";
+import { useRouter } from "next/router";
 
 const Footer: React.FC = () => {
+  const router = useRouter();
+
   return (
     <Flex
       w="full"
@@ -46,16 +49,16 @@ const Footer: React.FC = () => {
         <Heading fontWeight="semibold" fontSize="lg">
           Informasi
         </Heading>
-        <Link>Tentang Kami</Link>
-        <Link>Kontak</Link>
+        <Link onClick={() => router.push("/about")}>Tentang Kami</Link>
+        <Link onClick={() => router.push("/contact")}>Kontak</Link>
       </Flex>
 
       <Flex flexDir="column" w="150px">
         <Heading fontWeight="semibold" fontSize="lg">
           Produk & Layanan
         </Heading>
-        <Link>Produk</Link>
-        <Link>Layanan</Link>
+        <Link onClick={() => router.push("/product")}>Produk</Link>
+        <Link onClick={() => router.push("/service")}>Layanan</Link>
       </Flex>
     </Flex>
   );

@@ -48,7 +48,7 @@ const TimelineSection: React.FC = () => {
 
       <RoundedSection>
         <Flex w="full" h="1800px" justify="center" position="relative">
-          <Flex w="250px" h="full" position="relative">
+          <Flex w="270px" h="full" position="relative">
             <Box
               w="3px"
               h="full"
@@ -79,7 +79,7 @@ const TimelineSection: React.FC = () => {
 
           <Flex
             flexDir="column"
-            h="fulll"
+            h="full"
             w="full"
             zIndex="docked"
             py="25px"

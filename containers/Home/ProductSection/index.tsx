@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import { CustomImage } from "../../../components";
 import { RoundedSection } from "../../../layouts";
+import { useRouter } from "next/router";
 
 interface IProduct {
   name: string;
@@ -11,6 +12,8 @@ interface IProduct {
 
 const ProductSection: React.FC = () => {
   const [Product, setProduct] = React.useState<IProduct[]>([]);
+
+  const router = useRouter();
 
   React.useEffect(() => {
     (async () => {
@@ -27,7 +30,9 @@ const ProductSection: React.FC = () => {
   return (
     <RoundedSection>
       <Heading variant="primary">Produk Kami Meliputi</Heading>
-      <Button variant="secondary">Produk</Button>
+      <Button variant="secondary" onClick={() => router.push("/product")}>
+        Produk
+      </Button>
       <Grid
         gap="25px"
         templateAreas={`"header1 header2 header3"

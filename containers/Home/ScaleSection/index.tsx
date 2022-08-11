@@ -3,6 +3,7 @@ import axios from "axios";
 import React from "react";
 import Carousel from "../../core/Carousel";
 import { SwiperSlide } from "swiper/react";
+import { useRouter } from "next/router";
 
 interface IScale {
   name: string;
@@ -11,6 +12,8 @@ interface IScale {
 
 const ScaleSection: React.FC = () => {
   const [resource, setResource] = React.useState<IScale[]>();
+
+  const router = useRouter();
 
   React.useEffect(() => {
     (async () => {
@@ -33,7 +36,9 @@ const ScaleSection: React.FC = () => {
       gap="15px"
     >
       <Heading variant="primary">Skala Kami</Heading>
-      <Button variant="primary">Kontak</Button>
+      <Button variant="primary" onClick={() => router.push("/contact")}>
+        Kontak
+      </Button>
       <Carousel>
         {resource?.map((item, index) => {
           return (

@@ -2,6 +2,7 @@ import { Flex, Heading, Button } from "@chakra-ui/react";
 import React from "react";
 import axios from "axios";
 import { CustomImage } from "../../../components";
+import { useRouter } from "next/router";
 
 interface IService {
   name: string;
@@ -10,6 +11,8 @@ interface IService {
 
 const ServiceSection: React.FC = () => {
   const [Service, setService] = React.useState<IService[]>();
+
+  const router = useRouter();
 
   React.useEffect(() => {
     (async () => {
@@ -22,8 +25,6 @@ const ServiceSection: React.FC = () => {
         .then((response) => setService(response.data));
     })();
   }, []);
-
-  console.log(Service);
 
   return (
     <Flex
@@ -39,7 +40,9 @@ const ServiceSection: React.FC = () => {
       gap="15px"
     >
       <Heading variant="primary">Layanan Kami</Heading>
-      <Button variant="primary">Layanan</Button>
+      <Button variant="primary" onClick={() => router.push("/service")}>
+        Layanan
+      </Button>
 
       <Flex wrap="wrap" justifyContent="space-between" w="full" px="65px">
         {Service?.map((item, index) => {

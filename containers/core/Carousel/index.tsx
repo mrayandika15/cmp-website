@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { Navigation } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 
 import { Swiper } from "swiper/react";
 
@@ -12,8 +12,8 @@ interface ICarousel {
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+
+import "swiper/css/autoplay";
 
 type CarouselProps = {
   children: React.ReactNode;
@@ -24,9 +24,11 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
     <Flex w="full" h="full" justify="center">
       <Flex w="1200px">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           spaceBetween={25}
           slidesPerView={2}
+          autoplay={{ delay: 3000 }}
+          loop={true}
           navigation
         >
           {children}

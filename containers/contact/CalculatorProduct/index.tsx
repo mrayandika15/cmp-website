@@ -17,10 +17,41 @@ import {
   MenuOptionGroup,
   MenuDivider,
   Button,
+  Img,
 } from "@chakra-ui/react";
 import React from "react";
+import Dropdown from "./Dropdown";
+import { dataType, dataBahanKaos, dataBahanKemeja, dataPrinting } from "./Data";
+
+interface data {
+  name: string;
+}
 
 const CalculatorProduct: React.FC = () => {
+  const [selectedValueType, setSelectedValueType] = React.useState<string>("");
+
+  const [selectedValueKaos, setSelectedValueKaos] = React.useState<string>("");
+  const [selectedValuePrint, setSelectedValuePrint] =
+    React.useState<string>("");
+
+  const [valueBahan, setValueBahan] = React.useState<data[]>([]);
+
+  React.useEffect(() => {
+    if (selectedValueType === "Kaos") {
+      setValueBahan(dataBahanKaos);
+    }
+
+    if (selectedValueType === "Kemeja") setValueBahan(dataBahanKemeja);
+    if (selectedValueType === "Celana") setValueBahan(dataBahanKemeja);
+  }, [selectedValueType]);
+
+  const handleDisabledPrint = () => {
+    if (!selectedValueType) return true;
+    if (selectedValueType === "Kemeja") return true;
+    if (selectedValueType === "Celana") return true;
+    if (selectedValueType) return false;
+  };
+
   return (
     <Flex
       flexDir="column"
@@ -51,23 +82,12 @@ const CalculatorProduct: React.FC = () => {
         <Heading variant="primary">Kalkulator Perkiraan Biaya </Heading>
 
         <Flex gap="15px" w="full" px="10px" alignItems="center" py="15px">
-          {/* Menu 1 */}
-          <Menu>
-            <MenuButton
-              _hover={{ background: "secondary" }}
-              _active={{ background: "blue.900" }}
-              bg="#104764"
-              as={Button}
-              w="150px"
-              textAlign="left"
-            >
-              Jenis Pakaian
-            </MenuButton>
-            <MenuList zIndex="popover">
-              <MenuItem color="black">Cotton Combed 20s, 24s, 30s</MenuItem>
-              <MenuItem color="black">Kemeja</MenuItem>
-            </MenuList>
-          </Menu>
+          <Dropdown
+            data={dataType}
+            label="Jenis Pakaian"
+            selectedValue={selectedValueType}
+            setSelectedValue={setSelectedValueType}
+          />
 
           <Text variant="primary">
             Jenis pakaian drop down ( Kaos, Kemeja, Celana)
@@ -94,40 +114,21 @@ const CalculatorProduct: React.FC = () => {
             </Slider>
 
             <Flex flexDir="column" gap="50px" mt="50px">
-              {/* Menu 1 */}
-              <Menu>
-                <MenuButton
-                  _hover={{ background: "secondary" }}
-                  _active={{ background: "blue.900" }}
-                  bg="#104764"
-                  as={Button}
-                  w="150px"
-                  textAlign="left"
-                >
-                  Bahan
-                </MenuButton>
-                <MenuList>
-                  <MenuItem color="black">Download</MenuItem>
-                </MenuList>
-              </Menu>
+              <Dropdown
+                data={valueBahan}
+                label="Bahan"
+                isDisabled={!selectedValueType}
+                selectedValue={selectedValueKaos}
+                setSelectedValue={setSelectedValueKaos}
+              />
 
-              {/* Menu 2 */}
-
-              <Menu>
-                <MenuButton
-                  _hover={{ background: "secondary" }}
-                  bg="#104764"
-                  _active={{ background: "blue.900" }}
-                  as={Button}
-                  w="150px"
-                  textAlign="left"
-                >
-                  Printing
-                </MenuButton>
-                <MenuList>
-                  <MenuItem color="black">Download</MenuItem>
-                </MenuList>
-              </Menu>
+              <Dropdown
+                data={dataPrinting}
+                label="Printing"
+                isDisabled={handleDisabledPrint()}
+                selectedValue={selectedValuePrint}
+                setSelectedValue={setSelectedValuePrint}
+              />
             </Flex>
           </Flex>
 

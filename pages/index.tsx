@@ -10,6 +10,7 @@ import {
   ScaleSection,
   ServiceSection,
 } from "../containers";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   const { setNavbar } = useMainContext();
@@ -27,6 +28,9 @@ const Home: NextPage = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <title>Beranda</title>
+      </Head>
       <BrandSection />
       <ProductSection />
       <ServiceSection />

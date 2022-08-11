@@ -4,12 +4,15 @@ import { RoundedSection } from "../../../layouts";
 import Carousel from "../../core/Carousel";
 import { SwiperSlide } from "swiper/react";
 import { IDivision } from "../../../pages/about";
+import { useRouter } from "next/router";
 
 type DivisionProps = {
   data?: IDivision[];
 };
 
 const DivisionSection: React.FC<DivisionProps> = ({ data }) => {
+  const router = useRouter();
+
   return (
     <RoundedSection>
       <Heading variant="primary">Divisi Perusahaan</Heading>
@@ -52,7 +55,9 @@ const DivisionSection: React.FC<DivisionProps> = ({ data }) => {
         py="30px"
       >
         <Heading variant="primary">Ada yang bisa dibantu ?</Heading>
-        <Button variant="secondary">Kontak Kami</Button>
+        <Button onClick={() => router.push("/contact")} variant="secondary">
+          Kontak Kami
+        </Button>
       </Flex>
     </RoundedSection>
   );
