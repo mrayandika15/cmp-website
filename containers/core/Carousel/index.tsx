@@ -43,7 +43,7 @@ const Carousel: React.FC<CarouselProps> = ({
           modules={[Navigation, Autoplay]}
           spaceBetween={25}
           slidesPerView={view}
-          autoplay={{ delay: 6000 }}
+          autoplay={{ delay: 4000 }}
           loop={true}
           navigation
           onInit={onInit}
