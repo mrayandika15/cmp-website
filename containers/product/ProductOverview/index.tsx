@@ -8,6 +8,8 @@ import {
   IconButton,
   Img,
 } from "@chakra-ui/react";
+import Carousel from "../../core/Carousel";
+import { SwiperSlide } from "swiper/react";
 
 const data = [
   {
@@ -94,19 +96,10 @@ const ProductOver: React.FC = () => {
         px="55px"
         gap="25px"
       >
-        <IconButton
-          icon={<Img src="/assets/icon/panah_kanan.png" />}
-          bg="transparent"
-          _hover={{}}
-          _active={{}}
-          onClick={handlePrev}
-          aria-label="next button"
-        ></IconButton>
-
-        {data.map((item, index) => {
-          if (index === value)
-            return (
-              <>
+        <Carousel view={1} width="980px">
+          {data.map((item, index) => (
+            <SwiperSlide>
+              <Flex padding="55px" gap="10px" alignItems="center">
                 <Image src={item.imgUrl} rounded="3xl" key={index} />
                 <Flex flexDir="column" gap="25px">
                   <Heading variant="primary" textAlign="left">
@@ -116,18 +109,10 @@ const ProductOver: React.FC = () => {
 
                   <Text variant="primary">{item.desc2}</Text>
                 </Flex>
-              </>
-            );
-        })}
-
-        <IconButton
-          icon={<Img src="/assets/icon/panah_kiri.png" />}
-          bg="transparent"
-          _hover={{}}
-          _active={{}}
-          onClick={handleNext}
-          aria-label="prev button"
-        ></IconButton>
+              </Flex>
+            </SwiperSlide>
+          ))}
+        </Carousel>
       </Box>
     </Flex>
   );

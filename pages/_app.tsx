@@ -2,19 +2,16 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
+import "@fontsource/lato";
 
 import { MainContext } from "../context";
 import { themes } from "../themes";
 import "nprogress/nprogress.css";
 
-import SwiperCore, { Autoplay } from "swiper";
-
 import Router from "next/router";
 import NProgress from "nprogress";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  SwiperCore.use([Autoplay]);
-
   React.useEffect(() => {
     const handleRouteStart = () => NProgress.start();
     const handleRouteDone = () => NProgress.done();

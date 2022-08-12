@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
       width="full"
       h="750px"
       position="relative"
-      px="25px"
+      px="35px"
       py="45px"
       zIndex="docked"
     >

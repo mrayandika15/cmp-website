@@ -12,7 +12,7 @@ const RoundedSection: React.FC<IRounded> = ({ children, bg = "primary" }) => {
       flexDir="column"
       bg={bg}
       borderTopRadius="75px"
-      py="55px"
+      py="45px"
       px="25px"
       color="white"
       justify="center"

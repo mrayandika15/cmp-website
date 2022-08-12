@@ -10,7 +10,8 @@ const Footer: React.FC = () => {
       w="full"
       h="350px"
       bg="secondary"
-      p="25px"
+      px="35px"
+      py="25px"
       color="white"
       justify="space-between"
     >

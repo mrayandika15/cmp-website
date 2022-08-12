@@ -32,7 +32,7 @@ const TimelineSection: React.FC = () => {
   ];
 
   return (
-    <Flex flexDir="column" pt="55px">
+    <Flex flexDir="column" pt="30px">
       <Flex
         justify="center"
         alignItems="center"

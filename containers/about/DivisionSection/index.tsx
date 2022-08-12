@@ -15,49 +15,51 @@ const DivisionSection: React.FC<DivisionProps> = ({ data }) => {
 
   return (
     <RoundedSection>
-      <Heading variant="primary">Divisi Perusahaan</Heading>
-      <Carousel>
-        {data?.map((item, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <Box
-                overflow="hidden"
-                w="593px"
-                h="380px"
-                position="relative"
-                display="flex"
-                justifyItems="center"
-                alignItems="center"
-                rounded="3xl"
-              >
-                <Text
-                  position="absolute"
-                  w="full"
-                  h="full"
-                  display="grid"
-                  placeItems="center"
-                  fontWeight="semibold"
-                  fontSize="3xl"
+      <Flex flexDir="column" gap="35px">
+        <Heading variant="primary">Divisi Perusahaan</Heading>
+        <Carousel>
+          {data?.map((item, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <Box
+                  overflow="hidden"
+                  w="593px"
+                  h="380px"
+                  position="relative"
+                  display="flex"
+                  justifyItems="center"
+                  alignItems="center"
+                  rounded="3xl"
                 >
-                  {item?.name}
-                </Text>
-                <Image src={item?.imgUrl} w="fit-content" h="fit-content" />
-              </Box>
-            </SwiperSlide>
-          );
-        })}
-      </Carousel>
-      <Flex
-        flexDir="column"
-        justifyItems="center"
-        alignItems="center"
-        gap="30px"
-        py="30px"
-      >
-        <Heading variant="primary">Ada yang bisa dibantu ?</Heading>
-        <Button onClick={() => router.push("/contact")} variant="secondary">
-          Kontak Kami
-        </Button>
+                  <Text
+                    position="absolute"
+                    w="full"
+                    h="full"
+                    display="grid"
+                    placeItems="center"
+                    fontWeight="semibold"
+                    fontSize="3xl"
+                  >
+                    {item?.name}
+                  </Text>
+                  <Image src={item?.imgUrl} w="fit-content" h="fit-content" />
+                </Box>
+              </SwiperSlide>
+            );
+          })}
+        </Carousel>
+        <Flex
+          flexDir="column"
+          justifyItems="center"
+          alignItems="center"
+          gap="30px"
+          py="30px"
+        >
+          <Heading variant="primary">Ada yang bisa dibantu ?</Heading>
+          <Button onClick={() => router.push("/contact")} variant="secondary">
+            Kontak Kami
+          </Button>
+        </Flex>
       </Flex>
     </RoundedSection>
   );
