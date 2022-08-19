@@ -18,7 +18,13 @@ const data = [
       "Model menggunakan kain 24s yang tebal namun tetap dingin dan nyaman digunakan, juga didukung dengan penggunaan printing DTF yang dapat menampilkan gambar dengan detail dan tekstur yang menyerap ke kain, sehingga hasil print dapat bertahan lama meskipun dicuci berulang kali.",
     desc2:
       "Selain jenis kain dan printing yang digunakan model, kami juga menyediakan pilihan jenis kain lain dari mulai 20s hingga 30s, juga sablon printing plastisol dan discharge.",
-    imgUrl: "assets/img/product-page/1.png",
+    imgUrl: [
+      "assets/img/product-page/1/1.png",
+      "assets/img/product-page/1/2.png",
+      "assets/img/product-page/1/3.png",
+      "assets/img/product-page/1/4.png",
+      "assets/img/product-page/1/5.png",
+    ],
   },
   {
     name: "Kemeja",
@@ -26,7 +32,13 @@ const data = [
       "Model menggunakan kemeja jenis chinese collar, yang dapat digunakan juga sebagai busana muslim. Dengan menggunakan bahan kain oxford yang tebal namun tetap halus.",
     desc2:
       "Kami juga menyediakan pilihan kain yang beragam sebagai bahan kemeja seperti, oxford, katun, dan flannel. Tidak lupa dengan bentuk dari kemeja yang dapat disesuaikan juga dengan kebutuhanmu.",
-    imgUrl: "assets/img/product-page/2.png",
+    imgUrl: [
+      "assets/img/product-page/2/1.png",
+      "assets/img/product-page/2/2.png",
+      "assets/img/product-page/2/3.png",
+      "assets/img/product-page/2/4.png",
+      "assets/img/product-page/2/5.png",
+    ],
   },
   {
     name: "Celana",
@@ -34,7 +46,12 @@ const data = [
       "Model menggunakan celana dengan jenis chino, yang menggunakan jenis kain drill dengan karakteristik tebal dan tidak gampang kusut, kain drill memiliki pilihan warna yang paling beragam dibandingkan dengan celana berbahan lain.",
     desc2:
       "Pilihan jenis celana selain chino yang kami sediakan adalah cargo, formal, hingga jeans. Sementara untuk pilihan bahan kami menyediakan bahan seperti corduroy, katun, canvas, dan drill.",
-    imgUrl: "assets/img/product-page/3.png",
+    imgUrl: [
+      "assets/img/product-page/3/1.png",
+      "assets/img/product-page/3/2.png",
+      "assets/img/product-page/3/3.png",
+      "assets/img/product-page/3/4.png",
+    ],
   },
   {
     name: "Semi-dress",
@@ -42,7 +59,13 @@ const data = [
       "Model menggunakan semi-dress muslimah dengan bahan kain katun sehingga tekstur yang dihasilkan halus dan tidak panas bahkan saat digunakan bersama hijab.",
     desc2:
       "Kami menyediakan berbagai model semi-dress yang dapat dipilih sesuai kebutuhan, dan juga pilihan kain yang beragam seperti katun, linen, satin, dan sifon. ",
-    imgUrl: "assets/img/product-page/4.png",
+    imgUrl: [
+      "assets/img/product-page/4/1.png",
+      "assets/img/product-page/4/2.png",
+      "assets/img/product-page/4/3.png",
+      "assets/img/product-page/4/4.png",
+      "assets/img/product-page/4/5.png",
+    ],
   },
   {
     name: "Baju Tidur",
@@ -50,7 +73,13 @@ const data = [
       "Model menggunakan baju tidur yang menggunakan bahan kain katun yang dingin dan dapat menyerap keringat, jenis kain ini paling banyak digunakan sebagai bahan baju tidur karena kenyamanan dan kehalusan kain.",
     desc2:
       "Kami juga menyediakan pilihan kain yang dapat digunakan sebagai kain dasar baju tidur yaitu, katun, dan rayon.",
-    imgUrl: "assets/img/product-page/5.png",
+    imgUrl: [
+      "assets/img/product-page/5/1.png",
+      "assets/img/product-page/5/2.png",
+      "assets/img/product-page/5/3.png",
+      "assets/img/product-page/5/4.png",
+      "assets/img/product-page/5/5.png",
+    ],
   },
 ];
 
@@ -96,11 +125,17 @@ const ProductOver: React.FC = () => {
         px="55px"
         gap="25px"
       >
-        <Carousel view={1} width="980px">
+        <Carousel view={1} width="980px" autoplay={{ delay: 99999 }}>
           {data.map((item, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <Flex padding="55px" gap="10px" alignItems="center">
-                <Image src={item.imgUrl} rounded="3xl" key={index} />
+                <Carousel view={1} width="420px" navigation={false}>
+                  {item.imgUrl.map((img, index) => (
+                    <SwiperSlide key={index}>
+                      <Image src={img} rounded="3xl" />
+                    </SwiperSlide>
+                  ))}
+                </Carousel>
                 <Flex flexDir="column" gap="25px">
                   <Heading variant="primary" textAlign="left">
                     {item.name}

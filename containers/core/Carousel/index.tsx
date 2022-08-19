@@ -17,6 +17,8 @@ type CarouselProps = {
   children: React.ReactNode;
   view?: number;
   width?: string;
+  navigation?: boolean;
+  autoplay?: any;
 };
 
 SwiperCore?.use([Navigation, Autoplay]);
@@ -25,6 +27,8 @@ const Carousel: React.FC<CarouselProps> = ({
   children,
   view = 2,
   width = "1200px",
+  navigation = true,
+  autoplay = { delay: 4000 },
 }) => {
   const swiperRef = React.useRef<SwiperCore>();
 
@@ -43,9 +47,9 @@ const Carousel: React.FC<CarouselProps> = ({
           modules={[Navigation, Autoplay]}
           spaceBetween={25}
           slidesPerView={view}
-          autoplay={{ delay: 4000 }}
+          autoplay={autoplay}
           loop={true}
-          navigation
+          navigation={navigation}
           onInit={onInit}
         >
           {children}
