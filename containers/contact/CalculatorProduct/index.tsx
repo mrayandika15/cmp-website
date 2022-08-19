@@ -88,10 +88,6 @@ const CalculatorProduct: React.FC = () => {
             selectedValue={selectedValueType}
             setSelectedValue={setSelectedValueType}
           />
-
-          <Text variant="primary">
-            Jenis pakaian drop down ( Kaos, Kemeja, Celana)
-          </Text>
         </Flex>
 
         <Flex gap="15px" w="full" justifyContent="space-between" px="15px">
