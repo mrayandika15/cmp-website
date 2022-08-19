@@ -15,7 +15,7 @@ const DivisionSection: React.FC<DivisionProps> = ({ data }) => {
 
   return (
     <RoundedSection>
-      <Flex flexDir="column" gap="35px">
+      <Flex flexDir="column" gap="45px">
         <Heading variant="primary">Divisi Perusahaan</Heading>
         <Carousel>
           {data?.map((item, index) => {
